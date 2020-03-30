@@ -3,7 +3,7 @@
 ## How to get the differences
 To get these differences we beautify the code so that we don't have to compare single line files. This doesn't mean these are the source code for the file `dist/zoomus-websdk.umd.min.js` for that we are directly editing the file with the changes mentioned below.
 
-Beatufied files can be found under the `src` folder.
+Beautified files can be found under the `src` folder.
 
 ## Version 1.7.2.1
 - Fix chrome ios and firefox ios to not be detected as safari on ios.
