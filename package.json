@@ -2,15 +2,21 @@
     "name": "@zoomus/websdk",
     "version": "1.7.4",
     "description": "Zoom Web SDK",
-    "main": "index.js",
+    "main": "index-oncolens.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "beautify": "js-beautify dist/zoomus-websdk.umd.min.js -o src/zoomus-websdk.umd.original.js",
+        "uglify": "uglifyjs src/zoomus-websdk.umd.js -c -o dist/oncolens-zoomus-websdk.umd.min.js"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/zoom/websdk.git"
     },
-    "keywords": ["zoom", "web", "sdk"],
+    "keywords": [
+        "zoom",
+        "web",
+        "sdk"
+    ],
     "author": "Jack Yang",
     "license": "MIT",
     "homepage": "https://github.com/zoom/websdk#readme",
@@ -35,5 +41,11 @@
         "lodash": "^4.17.14",
         "redux-thunk": "2.2.0"
     },
-    "files": ["dist/*"]
+    "files": [
+        "dist/*"
+    ],
+    "devDependencies": {
+        "js-beautify": "^1.11.0",
+        "uglify-js": "^3.8.1"
+    }
 }
