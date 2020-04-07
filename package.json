@@ -4,7 +4,9 @@
     "description": "Zoom Web SDK",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "beautify": "js-beautify dist/zoomus-websdk.umd.min.js -o src/zoomus-websdk.umd.original.js",
+        "uglify": "uglifyjs src/zoomus-websdk.umd.js -c -o dist/oncolens-zoomus-websdk.umd.min.js"
     },
     "repository": {
         "type": "git",
@@ -34,6 +36,10 @@
         "jquery": "^3.4.1",
         "lodash": "^4.17.14",
         "redux-thunk": "2.2.0"
+    },
+    "devDependencies": {
+        "js-beautify": "^1.11.0",
+        "uglify-js": "^3.8.1"
     },
     "files": ["dist/*"]
 }
