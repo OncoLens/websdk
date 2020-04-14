@@ -2973,13 +2973,13 @@
       }
 
       function J(e) {
-        console.log("J(e)", e);
           if (g.default.localAudioDecMGR) {
               try {
                   ! function() {
                       var t = g.default.SPECIAL_ID,
                           n = e.data,
                           i = g.default.localAudioDecMGR.map.get(t);
+                      console.log("J(e)", n.status, n.data);
                       if (0 == n.status) i && i.postMessage({
                           command: "EncodedAudioFrame",
                           data: n.data
