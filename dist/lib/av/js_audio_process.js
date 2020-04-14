@@ -1881,7 +1881,7 @@
   }
   self.addEventListener("message", function(e) {
       var t = e.data;
-      console.log(t.command, t);
+      console.log('message', t.command, t);
       switch (t.command) {
           case "startMedia":
               try {
