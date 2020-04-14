@@ -2320,7 +2320,7 @@
               var n = g.default.localAudioEncMGR.map.get(e);
               n && n.postMessage({
                   command: "SetAECDelay",
-                  delay: t
+                  delay: 300
               })
           }
       }, t.Start_Monitor = function() {
