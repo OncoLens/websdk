@@ -29,6 +29,14 @@ return n || (newE.indexOf("chrome") > 0 ? newE.match(/chrome\/[\d.]+/gi).toStrin
 
 Replace
 
+In `1.7.6`, 
+
+`window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), navigator.browserVersion = function() {`
+
+changed to:
+
+`window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {`
+
 ```
 key: "componentDidMount",
 value: function() {
