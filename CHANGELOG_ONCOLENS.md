@@ -32,7 +32,7 @@ Replace
 ```
 key: "componentDidMount",
 value: function() {
-    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), navigator.browserVersion = function() {
+    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
         var e, t = navigator.userAgent,
 ```
 
@@ -41,7 +41,7 @@ with
 ```
 key: "componentDidMount",
 value: function() {
-    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), navigator.browserVersion = function() {
+    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
         var e, t = navigator.userAgent.replace('CriOS', 'Chrome'),
 ```
 
@@ -52,12 +52,12 @@ key: "creatAVSocket",
 value: function() {
     var e = this.props.baseStaticUrl,
         t = new JsMediaSDK_Instance,
-        n = Object(l.q)(e),
-        o = function(e, t) {
+        n = Object(l.s)(e),
+        r = function(e, t) {
             this.initStatus = e, this.socketCallBack = t, this.canvasInfo = {}, this.joinVoipTimes = 0
         },
-        r = Object(l.g)();
-    o.prototype = {
+        o = Object(l.g)();
+    r.prototype = {
 ```
 
 with
@@ -67,11 +67,11 @@ key: "creatAVSocket",
 value: function() {
     var e = this.props.baseStaticUrl,
         t = new JsMediaSDK_Instance,
-        n = Object(l.q)(e),
-        o = function(e, t) {
+        n = Object(l.s)(e),
+        r = function(e, t) {
             this.initStatus = e, this.socketCallBack = t, this.canvasInfo = {}, this.joinVoipTimes = 0
         },
-        r = Object(l.g)();
+        o = Object(l.g)();
     window.dispatchEvent(new CustomEvent('creatAVSocket', {
         detail: t
     }));
@@ -82,8 +82,8 @@ value: function() {
 key: "socketCallBack",
 value: function(e, t) {
     var n = this.props,
-        o = n.attendeesSize,
-        r = n.dispatch,
+        r = n.attendeesSize,
+        o = n.dispatch,
         a = n.meetingOptions,
         i = n.meeting;
     switch (e !== u.JPEG_DATA && Object(v.a)(JSON.stringify({
@@ -95,8 +95,8 @@ with
 key: "socketCallBack",
 value: function(e, t) {
     var n = this.props,
-        o = n.attendeesSize,
-        r = n.dispatch,
+        r = n.attendeesSize,
+        o = n.dispatch,
         a = n.meetingOptions,
         i = n.meeting;
     window.dispatchEvent(new CustomEvent('socketCallBack', {
