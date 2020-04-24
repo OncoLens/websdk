@@ -134,7 +134,7 @@ With:
 ```
     className: "img-sprite"
 }))) : f = null, Object(g.A)(r) && !l ? a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.w)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.D)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.w)("Unmute", "apac.toolbar_phone_unmute"), d = "unmute my microphone") : (e = Object(g.D)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.w)("Mute", "apac.toolbar_phone_mute"), d = "mute my microphone") : Object(g.A)(r) && l ? (t = {
-`
+```
 
 ## Mute all changes
 
