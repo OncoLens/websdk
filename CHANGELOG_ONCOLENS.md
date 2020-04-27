@@ -176,3 +176,20 @@ with
 ```
 
 The above change adds the line `e(Object(b.toggleMuteAllUnmuteThemselvesChecked)(n));` to the function. This ensures that state between the "allow user to unmute themselves" from the "More" button is synced with the "allow users to unmute themselves" checkbox state of the modal that pops up when a host clicks the mute all button.
+
+## ch1949 - Fix participant list scroll offset
+Replace
+```h = r && n ? o.a.createElement("div", {
+                            className: "participants-title"
+                        }, l) : null,
+                        m = c ? 500 : i.height,
+```
+
+with
+
+```
+h = r && n ? o.a.createElement("div", {
+                            className: "participants-title"
+                        }, l) : null,
+                        m = c ? 500 : i.height - 25,
+```
