@@ -193,3 +193,16 @@ h = r && n ? o.a.createElement("div", {
                         }, l) : null,
                         m = c ? 500 : i.height - 25,
 ```
+
+## ch2070 - "Not sharing screen" message stays after stopping screen share
+Replace
+```
+e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
+```
+
+with
+
+```
+window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
+                    e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
+```
