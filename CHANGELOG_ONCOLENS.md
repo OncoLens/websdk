@@ -48,33 +48,15 @@ value: function() {
 - Forward `createAVSocket` to window, to make it available for other to subscribe to it
 
 ```
-key: "creatAVSocket",
-value: function() {
-    var e = this.props.baseStaticUrl,
-        t = new JsMediaSDK_Instance,
-        n = Object(l.s)(e),
-        r = function(e, t) {
-            this.initStatus = e, this.socketCallBack = t, this.canvasInfo = {}, this.joinVoipTimes = 0
-        },
-        o = Object(l.g)();
-    r.prototype = {
+this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(Object(c.g)(), n)
 ```
 
 with
 
 ```
-key: "creatAVSocket",
-value: function() {
-    var e = this.props.baseStaticUrl,
-        t = new JsMediaSDK_Instance,
-        n = Object(l.s)(e),
-        r = function(e, t) {
-            this.initStatus = e, this.socketCallBack = t, this.canvasInfo = {}, this.joinVoipTimes = 0
-        },
-        o = Object(l.g)();
-    window.dispatchEvent(new CustomEvent('creatAVSocket', {
-        detail: t
-    }));
+window.dispatchEvent(new CustomEvent('creatAVSocket', {
+                        detail: this.socketInstance
+                    }));
 ```
 
 - Make `socketCallback` event publicly available for others to subscribe to
