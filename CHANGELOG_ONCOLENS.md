@@ -109,7 +109,7 @@ value: function(e, t) {
 ```
 
 
-## Version 1.4.2.1
+## Version 1.7.4.1
 
 - Update mute/unmute button copy
 
@@ -135,4 +135,75 @@ With:
 ```
     className: "img-sprite"
 }))) : f = null, Object(g.A)(r) && !l ? a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.w)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.D)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.w)("Unmute", "apac.toolbar_phone_unmute"), d = "unmute my microphone") : (e = Object(g.D)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.w)("Mute", "apac.toolbar_phone_mute"), d = "mute my microphone") : Object(g.A)(r) && l ? (t = {
+```
+
+## Mute all changes
+
+Replace 
+
+```
+        function M() {
+            return function(e, t) {
+                var n = t().meeting.bCanUnmute;
+                e(Object(b.toggleInstanceOpen)(!0));
+                var r = v.u,
+                    o = v.s,
+                    a = v.kb,
+                    i = v.lb;
+                c.a.confirm({
+                    className: "zm-modal-legacy",
+                    okText: r,
+                    okButtonProps: w,
+                    cancelText: o,
+```
+
+with
+
+```
+        function M() {
+            return function(e, t) {
+                var n = t().meeting.bCanUnmute;
+                e(Object(b.toggleInstanceOpen)(!0));
+                e(Object(b.toggleMuteAllUnmuteThemselvesChecked)(n));
+                var r = v.u,
+                    o = v.s,
+                    a = v.kb,
+                    i = v.lb;
+                c.a.confirm({
+                    className: "zm-modal-legacy",
+                    okText: r,
+                    okButtonProps: w,
+                    cancelText: o,
+```
+
+The above change adds the line `e(Object(b.toggleMuteAllUnmuteThemselvesChecked)(n));` to the function. This ensures that state between the "allow user to unmute themselves" from the "More" button is synced with the "allow users to unmute themselves" checkbox state of the modal that pops up when a host clicks the mute all button.
+
+## ch1949 - Fix participant list scroll offset
+Replace
+```h = r && n ? o.a.createElement("div", {
+                            className: "participants-title"
+                        }, l) : null,
+                        m = c ? 500 : i.height,
+```
+
+with
+
+```
+h = r && n ? o.a.createElement("div", {
+                            className: "participants-title"
+                        }, l) : null,
+                        m = c ? 500 : i.height - 25,
+```
+
+## ch2070 - "Not sharing screen" message stays after stopping screen share
+Replace
+```
+e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
+```
+
+with
+
+```
+window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
+                    e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
 ```
