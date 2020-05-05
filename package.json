@@ -6,6 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "beautify": "js-beautify dist/zoomus-websdk.umd.min.js -o src/zoomus-websdk.umd.original.js",
+        "beautify-media": "js-beautify dist/lib/av/js_media.min.js -o src/js_media.min.original.js",
         "uglify": "uglifyjs src/zoomus-websdk.umd.js -c -o dist/oncolens-zoomus-websdk.umd.min.js"
     },
     "repository": {
