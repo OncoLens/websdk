@@ -193,6 +193,9 @@ window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
 
 ## 1.7.7
 
+### es6 compatibility problems
+Replace all instances of `const ` with `var `.
+
 ### ch2083 - Keep microsoft edge compatible with websdk
 Replace
 ```
