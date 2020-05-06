@@ -54,6 +54,7 @@ this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK
 with
 
 ```
+this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(Object(c.g)(), n);
 window.dispatchEvent(new CustomEvent('creatAVSocket', {
                         detail: this.socketInstance
                     }));
@@ -180,12 +181,32 @@ h = r && n ? o.a.createElement("div", {
 ## ch2070 - "Not sharing screen" message stays after stopping screen share
 Replace
 ```
-e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
+e(Object(a.j)(c)), i.a.sendSocket(o.z, {}), e(Object(r.j)(o.w.ED))
 ```
 
 with
 
 ```
 window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
-                    e(Object(a.i)(c)), i.a.send_socket(o.y, {}), e(Object(r.j)(o.v.ED))
+                    e(Object(a.j)(c)), i.a.sendSocket(o.z, {}), e(Object(r.j)(o.w.ED))
+```
+
+## 1.7.7
+
+### ch2083 - Keep microsoft edge compatible with websdk
+Replace
+```
+function D() {
+            var e = navigator.userAgent.toLowerCase();
+            return /edge\/(\d+)/.test(e)
+        }
+```
+
+with
+
+```
+function D() {
+            var e = navigator.userAgent.toLowerCase();
+            return /xedgex\/(\d+)/.test(e)
+        }
 ```
