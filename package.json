@@ -2,7 +2,7 @@
     "name": "@zoomus/websdk",
     "version": "1.7.10",
     "description": "Zoom Web SDK",
-    "main": "oncolens-index.js",
+    "main": "index-oncolens.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "beautify": "js-beautify dist/zoomus-websdk.umd.min.js -o src/zoomus-websdk.umd.original.js",
