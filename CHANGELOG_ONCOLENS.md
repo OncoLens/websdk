@@ -6,7 +6,7 @@ To get these differences we beautify the code so that we don't have to compare s
 Beautified files can be found under the `src` folder.
 
 ## Version 1.7.2.1
-- Fix chrome ios and firefox ios to not be detected as safari on ios.
+- *(NOT NEEDED SINCE 1.7.9)* Fix chrome ios and firefox ios to not be detected as safari on ios.
 
 Replace
 
@@ -48,13 +48,13 @@ value: function() {
 - Forward `createAVSocket` to window, to make it available for other to subscribe to it
 
 ```
-this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(Object(c.g)(), n)
+this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(this.mediaWorkPath, n)
 ```
 
 with
 
 ```
-this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(Object(c.g)(), n);
+this.socketInstance = new JsMediaSDK_Instance(l), this.socketInstance.JsMediaSDK_PreLoad(this.mediaWorkPath, n)
 window.dispatchEvent(new CustomEvent('creatAVSocket', {
                         detail: this.socketInstance
                     }));
@@ -110,14 +110,14 @@ Add:
 Replace:
 ```
     className: "img-sprite"
-}))) : f = null, Object(g.z)(r) && !l ? a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.w)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.C)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.w)("Unmute", "apac.toolbar_unmute"), d = "unmute my microphone") : (e = Object(g.C)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.w)("Mute", "apac.toolbar_mute"), d = "mute my microphone") : Object(g.z)(r) && l ? (t = {
+    }))) : f = null, Object(g.A)(r) && !l ? (this.props.dispatch(Object(w.b)(!0)), a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.v)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.D)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.v)("Unmute", "apac.toolbar_unmute"), d = "unmute my microphone") : (e = Object(g.D)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.v)("Mute", "apac.toolbar_mute"), d = "mute my microphone")) : Object(g.A)(r) && l ? (t = {
 ```
 
 With:
 
 ```
     className: "img-sprite"
-}))) : f = null, Object(g.z)(r) && !l ? a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.w)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.C)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.w)("Unmute", "apac.toolbar_phone_unmute"), d = "unmute my microphone") : (e = Object(g.C)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.w)("Mute", "apac.toolbar_phone_mute"), d = "mute my microphone") : Object(g.z)(r) && l ? (t = {
+    }))) : f = null, Object(g.A)(r) && !l ? (this.props.dispatch(Object(w.b)(!0)), a ? (e = "img-disallow-mic join-btn img-sprite", p = Object(u.v)("Audio", "apac.wc_audio"), d = "audio") : r.muted ? (e = Object(g.D)(r) ? "img-unmute join-btn img-sprite" : "img-unmute-phone join-btn img-sprite", p = Object(u.v)("Unmute", "apac.toolbar_phone_unmute"), d = "unmute my microphone") : (e = Object(g.D)(r) ? r.hasAsn ? "img-mute-animation join-btn img-sprite" : "img-mute join-btn img-sprite" : "img-mute-phone join-btn img-sprite", p = Object(u.v)("Mute", "apac.toolbar_phone_mute"), d = "mute my microphone")) : Object(g.A)(r) && l ? (t = {
 ```
 
 ## Mute all changes
@@ -125,7 +125,7 @@ With:
 Replace 
 
 ```
-        function M() {
+        function z() {
             return function(e, t) {
                 var n = t().meeting.bCanUnmute;
                 e(Object(b.toggleInstanceOpen)(!0));
@@ -143,7 +143,7 @@ Replace
 with
 
 ```
-        function M() {
+        function z() {
             return function(e, t) {
                 var n = t().meeting.bCanUnmute;
                 e(Object(b.toggleInstanceOpen)(!0));
@@ -199,7 +199,7 @@ Replace all instances of `const ` with `var `.
 ### ch2083 - Keep microsoft edge compatible with websdk
 Replace
 ```
-function D() {
+function N() {
             var e = navigator.userAgent.toLowerCase();
             return /edge\/(\d+)/.test(e)
         }
@@ -208,7 +208,7 @@ function D() {
 with
 
 ```
-function D() {
+function N() {
             var e = navigator.userAgent.toLowerCase();
             return /xedgex\/(\d+)/.test(e)
         }
