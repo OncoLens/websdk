@@ -32,7 +32,7 @@ Replace
 ```
 key: "componentDidMount",
 value: function() {
-    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
+    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("preJoinMeeting", this.zmg_preJoinMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
         var e, t = navigator.userAgent,
 ```
 
@@ -41,7 +41,7 @@ with
 ```
 key: "componentDidMount",
 value: function() {
-    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
+    window.addEventListener("initMeeting", this.zmg_initMeeting), window.addEventListener("preJoinMeeting", this.zmg_preJoinMeeting), window.addEventListener("joinMeeting", this.zmg_joinMeeting), window.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), window.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), window.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
         var e, t = navigator.userAgent.replace('CriOS', 'Chrome'),
 ```
 
@@ -65,10 +65,10 @@ window.dispatchEvent(new CustomEvent('creatAVSocket', {
 key: "socketCallBack",
 value: function(e, t) {
     var n = this.props,
-        r = n.attendeesSize,
-        o = n.dispatch,
-        a = n.meetingOptions,
-        i = n.meeting;
+    r = n.attendeesSize,
+    o = n.dispatch,
+    a = n.meetingOptions;
+    n.meeting;
     switch (e !== u.JPEG_DATA && Object(v.a)(JSON.stringify({
 ```
 
@@ -78,10 +78,10 @@ with
 key: "socketCallBack",
 value: function(e, t) {
     var n = this.props,
-        r = n.attendeesSize,
-        o = n.dispatch,
-        a = n.meetingOptions,
-        i = n.meeting;
+    r = n.attendeesSize,
+    o = n.dispatch,
+    a = n.meetingOptions;
+    n.meeting;
     window.dispatchEvent(new CustomEvent('socketCallBack', {
         detail: {
             eventId: e,
