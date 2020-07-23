@@ -13,7 +13,11 @@
         "type": "git",
         "url": "git+https://github.com/zoom/websdk.git"
     },
-    "keywords": ["zoom", "web", "sdk"],
+    "keywords": [
+        "zoom",
+        "web",
+        "sdk"
+    ],
     "author": "Jack Yang",
     "license": "MIT",
     "homepage": "https://github.com/zoom/websdk#readme",
@@ -42,5 +46,7 @@
         "js-beautify": "^1.11.0",
         "uglify-js": "^3.8.1"
     },
-    "files": ["dist/*"]
+    "files": [
+        "dist/*"
+    ]
 }
