@@ -148,3 +148,41 @@ function N() {
             return /xedgex\/(\d+)/.test(e)
         }
 ```
+
+## ch5943 - Force chat height to be 100vh
+
+This attempts to fix some sort of error with height calculation of the virtual window that renders chat messages. It seems like the calculation fails sometimes. This might be because messages are not processed properly when they are received or perhaps they aren not received at all. I'm not sure what the exact issue is- this is just speculation. We attempt to fix this by:
+    * forcing the scroll container of chat messages to always be `100vh` (`height` and `max-height`)
+    * removing `overflow: "hidden"` so that the user can still scroll down and see messages if there are enough message to fill up more than the view height (i.e., `vh`)
+
+Replace 
+```
+                            className: "ReactVirtualized__Grid__innerScrollContainer",
+                            role: c,
+                            style: i()({
+                                width: t ? "auto" : O,
+                                height: A,
+                                maxWidth: O,
+                                maxHeight: A,
+                                overflow: "hidden",
+                                pointerEvents: w ? "none" : "",
+                                position: "relative"
+                            }, s)
+                        }, C), S && p())
+```
+
+with
+
+```
+                            className: "ReactVirtualized__Grid__innerScrollContainer",
+                            role: c,
+                            style: i()({
+                                width: t ? "auto" : O,
+                                height: "100vh",
+                                maxWidth: O,
+                                maxHeight: "100vh",
+                                pointerEvents: w ? "none" : "",
+                                position: "relative"
+                            }, s)
+                        }, C), S && p())
+```
