@@ -238,4 +238,5 @@ export namespace ZoomMtg {
         error?: Function,
     }): void;
 
+    function checkSystemRequirements(): any;
 }
