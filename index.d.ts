@@ -122,7 +122,6 @@ export namespace ZoomMtg {
         userName: string,
         userEmail?: string,
         passWord?: string,
-        participantId: string,
         apiKey: string,
         signature: string,
         success: Function,

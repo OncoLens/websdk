@@ -132,3 +132,7 @@ window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
 Replace all instances of `const ` with `var `.
 
 This is cause uglify is dumb and doesn't handle ES6. Our parcel/tsc in web-oncolens fixes this for IE.
+
+## 1.8.5
+
+Add `function checkSystemRequirements(): any;` to the `ZoomMtg` namespace in index.d.ts.
