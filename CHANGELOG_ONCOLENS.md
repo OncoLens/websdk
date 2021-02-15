@@ -32,7 +32,7 @@ with
 key: "componentDidMount",
 value: function() {
    this.body.addEventListener("initMeeting", this.zmg_initMeeting), this.body.addEventListener("preJoinMeeting", this.zmg_preJoinMeeting), this.body.addEventListener("joinMeeting", this.zmg_joinMeeting), this.body.addEventListener("continueJoin", this.zmg_continueJoin), this.body.addEventListener("reJoinMeeting", this.zmg_reJoinMeeting), this.body.addEventListener("joinMeetingFail", this.zmg_joinMeetingFail), this.body.addEventListener("joinMeetingLogin", this.zmg_joinMeetingLogin), this.body.addEventListener("checkRegisterMeetingStatus", this.zmg_checkRegisterMeetingStatus), window.addEventListener("message", this.zmg_messageCallBack), navigator.browserVersion = function() {
-        var e, t = navigator.userAgent.replace('CriOS', 'Chrome'),
+        var e, n = navigator.userAgent.replace('CriOS', 'Chrome'),
 ```
 
 - Forward `createAVSocket` to window, to make it available for other to subscribe to it
@@ -53,45 +53,64 @@ window.dispatchEvent(new CustomEvent('creatAVSocket', {
 - Make `socketCallback` event publicly available for others to subscribe to
 ```
 key: "socketCallBack",
-value: function(e, t) {
-    var n = this.props,
-    r = n.attendeesSize,
-    o = n.dispatch,
-    a = n.meetingOptions;
-    n.meeting;
-    switch (e !== u.JPEG_DATA && Object(v.a)(JSON.stringify({
+value: function(e, n) {
+    var t = this.props,
+        o = (t.attendeesSize, t.dispatch),
+        r = t.meetingOptions;
+    switch (t.meeting, e !== l.JPEG_DATA && Object(h.a)(JSON.stringify({
+        type: e,
+        data: n
+    }), e), e) {
 ```
 
 with
 
 ```
 key: "socketCallBack",
-value: function(e, t) {
-    var n = this.props,
-    r = n.attendeesSize,
-    o = n.dispatch,
-    a = n.meetingOptions;
-    n.meeting;
+value: function(e, n) {
+    var t = this.props,
+        o = (t.attendeesSize, t.dispatch),
+        r = t.meetingOptions;
     window.dispatchEvent(new CustomEvent('socketCallBack', {
         detail: {
             eventId: e,
             data: t
         }
     }));
-    switch (e !== u.JPEG_DATA && Object(v.a)(JSON.stringify({
+    switch (t.meeting, e !== l.JPEG_DATA && Object(h.a)(JSON.stringify({
+        type: e,
+        data: n
+    }), e), e) {
 ```
 
 ## ch2070 - "Not sharing screen" message stays after stopping screen share
 Replace
+
 ```
-e(Object(a.j)(c)), i.a.sendSocket(o.z, {}), e(Object(r.j)(o.w.ED))
+                    var t = n().meeting.currentUser.userId,
+                        r = {
+                            evt: a.i,
+                            body: {
+                                id: t,
+                                bOn: !0
+                            }
+                        };
+                    e(Object(c.j)(r)), u.a.sendSocket(a.E, {}), e(Object(o.u)(a.A.ED))
 ```
 
 with
-
 ```
-window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
-                    e(Object(a.j)(c)), i.a.sendSocket(o.z, {}), e(Object(r.j)(o.w.ED))
+                return function(e, n) {
+                    var t = n().meeting.currentUser.userId,
+                        r = {
+                            evt: a.i,
+                            body: {
+                                id: t,
+                                bOn: !0
+                            }
+                        };
+                    window.dispatchEvent(new CustomEvent('stop_desktop_sharing'));
+                    e(Object(c.j)(r)), u.a.sendSocket(a.E, {}), e(Object(o.u)(a.A.ED))
 ```
 
 ## 1.7.7
@@ -108,35 +127,35 @@ This attempts to fix some sort of error with height calculation of the virtual w
     * removing `overflow: "hidden"` so that the user can still scroll down and see messages if there are enough message to fill up more than the view height (i.e., `vh`)
 
 Replace 
+
 ```
                             className: "ReactVirtualized__Grid__innerScrollContainer",
-                            role: c,
-                            style: i()({
-                                width: t ? "auto" : O,
-                                height: A,
-                                maxWidth: O,
-                                maxHeight: A,
+                            role: s,
+                            style: a()({
+                                width: n ? "auto" : A,
+                                height: k,
+                                maxWidth: A,
+                                maxHeight: k,
                                 overflow: "hidden",
                                 pointerEvents: w ? "none" : "",
                                 position: "relative"
-                            }, s)
-                        }, C), S && p())
+                            }, c)
 ```
 
 with
 
 ```
                             className: "ReactVirtualized__Grid__innerScrollContainer",
-                            role: c,
-                            style: i()({
-                                width: t ? "auto" : O,
+                            role: s,
+                            style: a()({
+                                width: n ? "auto" : A,
                                 height: "100vh",
-                                maxWidth: O,
+                                maxWidth: A,
                                 maxHeight: "100vh",
+                                overflow: "hidden",
                                 pointerEvents: w ? "none" : "",
                                 position: "relative"
-                            }, s)
-                        }, C), S && p())
+                            }, c)
 ```
 
 ## 1.8.5
