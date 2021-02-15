@@ -1,4 +1,39 @@
 # CHANGELOG
+## version 1.9.0
+## Add
+1. Added support for Gallery View.
+2. Added support for meeting hosts to send messages to participants in a Waiting Room.
+3. Added support for pausing recordings.
+
+## Enhancements
+1. Enhanced display message for blocking participants from certain regions to join meetings.
+2. Enhanced messaging to update WebSDK version.
+3. Enhanced JSmedia file for Gallery View support, fixing audio issues, and errors within the browsers console.
+
+## Bug Fixes
+1. Fixed invite email length to open email client.
+2. Fixed Share privileges in Breakout Rooms to match the main Meeting session.
+3. Fixed Chat privileges in Breakout Room to match the main meeting session.
+4. Fixed grammatical errors for polling results.
+5. Fixed German translation errors.
+6. Fixed UI issue where Q&A comments covering participants name.
+
+## version 1.8.6
+## Bug Fixes
+1. Fixed Attendee cannot join in to BreakOut Room when "Enable Waiting Room" is enabled
+2. Fixed Attendee Leaves meeting show 'trying to reconect'
+3. Fixed Joined audio user can't show wating room when be put on hold
+4. Fixed Android Chrome Audio don't work
+5. Fixed Audio stops working when High-Fidelity/Stereo Mode is Enabled
+6. Fixed Start Video Black Screen in Mac When Only One attendee
+7. Fixed "The host mute/unmuted you" when call me success/hangeup
+8. Fixed definition of ZooMtg.i18n wrong
+9. Fixed co-host call rename/muteAll/expel/record/lockMeeting/putOnHold API no privilege
+
+## Enhancements
+1. polling switcher split meeting and webinar
+2. remove default load language resource cause 404
+3. Add setSupportLanguage api
 ## version 1.8.5
 
 ## Add
@@ -17,7 +52,7 @@
 1. Redesigned the Report a user in-meeting form.
 2. Remove Jquery. all $.i18n -> ZoomMtg.i18n
 3. Provided es5 support within the npm version.
-
+4. multi-lang need manual load
    
 ## Bug Fixes
 1. Fixed bug that displays black screen when host starts screen sharing.
